@@ -6,11 +6,11 @@ const IndexPage = ({data}) => {
 
   return (
     <div>
-      {posts.map(({node: post}) => {
+      {posts.map(({node: post}, index) => {
         const { frontmatter } = post
 
         return (
-          <div>
+          <div key={index}>
             <h2>
               <Link to={frontmatter.path}>
                 {frontmatter.title}
@@ -26,7 +26,6 @@ const IndexPage = ({data}) => {
           </div>
         );
       })}
-      <Link to="/page-2/">Go to page 2</Link>
     </div>
   )
 }
